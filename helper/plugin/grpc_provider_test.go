@@ -328,7 +328,8 @@ func TestPlanResourceChange(t *testing.T) {
 	// A propsed state with only the ID unknown will produce a nil diff, and
 	// should return the propsed state value.
 	proposedVal, err := schema.CoerceValue(cty.ObjectVal(map[string]cty.Value{
-		"id": cty.UnknownVal(cty.String),
+		"id":  cty.UnknownVal(cty.String),
+		"foo": cty.Zero,
 	}))
 	if err != nil {
 		t.Fatal(err)
